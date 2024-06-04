@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, UseGuards } from '@nestjs/common';
 import { TournamentService } from '../services/tournament.service';
 import { CreateTournamentDto } from '../dtos/create-tournament.dto';
 import { UpdateTournamentDto } from '../dtos/update-tournament.dto';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { ApiKeyGuard } from 'src/common/guards/ApiKeyGuard';
 
 @Controller('tournaments')
 export class TournamentController {
@@ -12,6 +13,7 @@ export class TournamentController {
   @ApiOperation({ summary: 'Create a new tournament' })
   @ApiResponse({ status: 201, description: 'The tournament has been successfully created.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
+  @UseGuards(ApiKeyGuard)
   create(@Body() createTorneoDto: CreateTournamentDto) {
     return this.tournamentService.createTournament(createTorneoDto);
   }
