@@ -26,10 +26,44 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+This project is an API for managing esports tournaments at a Colombia level. It allows creation, updating, deletion, and querying of tournaments, players, and match results. Additionally, it provides functionalities for randomly assigning participants to a tournament and recording match results.
+
+## Prerequisites
+
+Before getting started, make sure you have the following programs installed:
+
+- Node.js (>= 14.x.x)
+- npm (>= 6.x.x) or yarn (>= 1.x.x)
+- PostgreSQL
+
 ## Installation
 
+1. Clone the repository:
+
 ```bash
-$ npm install
+git https://github.com/AndresGomez28/esports.git
+cd esports
+```
+
+2. instll dependencies
+
+```bash
+npm install
+# or
+yarn install
+
+```
+
+3. Configure environment variables:
+Create a .env file in the root of the project with the following content:
+
+```bash
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+DB_DATABASE=your_database
+
 ```
 
 ## Running the app
@@ -44,6 +78,10 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+## Documentation
+
+The API is documented using Swagger. You can access the documentation at http://localhost:3000/api.
 
 ## Test
 

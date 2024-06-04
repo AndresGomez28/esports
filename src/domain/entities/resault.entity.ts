@@ -10,10 +10,10 @@ export class Result {
   @ManyToOne(() => Tournament, tournament => tournament.results)
   tournament: Tournament;
 
-  @ManyToOne(() => Player)
+  @ManyToOne(() => Player, player => player.id)
   winner: Player;
 
-  @ManyToOne(() => Player)
+  @ManyToOne(() => Player, player => player.id)
   looser: Player;
 
   @Column()
