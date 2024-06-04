@@ -10,7 +10,7 @@ export class Tournament {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ type: 'timestamp' })
   date: Date;
 
   @OneToMany(() => Player, player => player.tournament)
